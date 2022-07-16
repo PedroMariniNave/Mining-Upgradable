@@ -114,7 +114,7 @@ Pickaxe-Item:
     - '&7EXP: &f{exp}'
     - '&7Explosão: &f{explosion}'
     - ''
-    - ' &8► &fNível: &7{level} {progress}'
+    - ' &8► &fNível: &7{level} {progress} &8({percentage}%)'
     - ' &8► &fGemas: &7{points} &6&l✦'
     - ' &8► &fQualidade: {quality}'
     - ''

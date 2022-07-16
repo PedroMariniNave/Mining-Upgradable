@@ -65,9 +65,10 @@ public class NumberFormatter {
     }
 
     public String formatDecimal(double number) {
-        DecimalFormat formatter = (DecimalFormat) NumberFormat.getInstance(Locale.US);
+        DecimalFormat formatter = new DecimalFormat("##.##");
         DecimalFormatSymbols symbols = formatter.getDecimalFormatSymbols();
-        symbols.setGroupingSeparator('.');
+
+        symbols.setDecimalSeparator('.');
         formatter.setDecimalFormatSymbols(symbols);
         return formatter.format(number);
     }
