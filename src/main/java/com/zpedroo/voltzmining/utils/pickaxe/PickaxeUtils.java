@@ -296,6 +296,7 @@ public class PickaxeUtils {
 
         placeholders.add("{points}");
         placeholders.add("{level}");
+        placeholders.add("{percentage}");
         placeholders.add("{progress}");
         placeholders.add("{quality}");
         placeholders.add("{quality_next}");
@@ -318,6 +319,7 @@ public class PickaxeUtils {
 
         replacers.add(NumberFormatter.getInstance().formatThousand(getItemPoints(item)));
         replacers.add(NumberFormatter.getInstance().formatThousand(getItemLevel(item)));
+        replacers.add(NumberFormatter.getInstance().formatDecimal(ProgressConverter.getPercentage(getItemExperience(item))));
         replacers.add(ProgressConverter.convertExperience(getItemExperience(item)));
         replacers.add(ProgressConverter.convertQuality(itemQuality));
         replacers.add(ProgressConverter.convertQuality(nextItemQuality));
