@@ -70,6 +70,10 @@ public class VoltzMining extends JavaPlugin {
         if (getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
             new PlaceholderAPIHook(this).register();
         }
+
+        if (getServer().getPluginManager().getPlugin("mcMMO") != null) {
+            getServer().getPluginManager().registerEvents(new McMMOListeners(), this);
+        }
     }
 
     private void registerListeners() {
