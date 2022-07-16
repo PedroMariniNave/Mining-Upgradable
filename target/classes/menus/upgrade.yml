@@ -1,0 +1,325 @@
+Inventory:
+  title: "Evolução"
+  size: 45
+  item-slot: 12 # -1 = disabled
+  items:
+    1:
+      slot: 14
+      action: 'UPGRADE:QUALITY'
+      locked:
+        type: SKULL_ITEM
+        owner: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGYwZWYxNjc0YjcxZjhkYWQ3ZjU4ODJmMTNjZjI0MTE2NTNmNmEyZjllOTBlNDViMTgxZjQ0YjllZWYyNzhmZiJ9fX0=
+        name: "&cQualidade"
+        lore:
+          - '&7Melhorar a qualidade da sua picareta'
+          - '&7resulta em um bônus, que é aplicado'
+          - '&7em todos encantamentos.'
+          - ''
+          - ' &8▶ &7Qualidade: {quality} &8➟ {quality_next}'
+          - ' &8▶ &7Bônus: &f{quality_bonus}x &8➟ &f{quality_next_bonus}x'
+          - ' &8▶ &7Custo: {cost}'
+          - ''
+          - '&cNecessário nível {required_level} ou superior!'
+      can-not-upgrade:
+        type: SKULL_ITEM
+        owner: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmQxMWM5NmRkMmI3NmQ4MWJmZjIyMDU5ZTQzMjc2NTc1NjY2OTU2Y2NhOGEzYTc1ODM1ZDA0MmFjYjNmNDI4YyJ9fX0=
+        name: "&cQualidade"
+        lore:
+          - '&7Melhorar a qualidade da sua picareta'
+          - '&7resulta em um bônus, que é aplicado'
+          - '&7em todos encantamentos.'
+          - ''
+          - ' &8▶ &7Qualidade: {quality} &8➟ {quality_next}'
+          - ' &8▶ &7Bônus: &f{quality_bonus}x &8➟ &f{quality_next_bonus}x'
+          - ' &8▶ &7Custo: {cost}'
+          - ''
+          - '&cEsse item não possui cash suficiente!'
+      can-upgrade:
+        type: SKULL_ITEM
+        owner: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODAzNzYyNTRkNTczNWFiMTU2N2IzZjg3YzdmYmRlNDFkZmM0MTYyMmI2NTEwYjY2N2Q4MmM5ZWZlOGE1Y2VkMSJ9fX0=
+        name: "&aQualidade"
+        lore:
+          - '&7Melhorar a qualidade da sua picareta'
+          - '&7resulta em um bônus, que é aplicado'
+          - '&7em todos encantamentos.'
+          - ''
+          - ' &8▶ &7Qualidade: {quality} &8➟ {quality_next}'
+          - ' &8▶ &7Bônus: &f{quality_bonus}x &8➟ &f{quality_next_bonus}x'
+          - ' &8▶ &7Custo: {cost}'
+          - ''
+          - '&7Clique para evoluir!'
+      max-level:
+        type: SKULL_ITEM
+        owner: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTRhODQ1NTVmZjM3NzljMjBmMDhjNDgzNTkyNTViZjlmODFmMWMzNjczYzYzOTgyNjE4YzY0MDYyZTg5MmFlMiJ9fX0=
+        name: "&aQualidade"
+        lore:
+          - '&7Melhorar a qualidade da sua picareta'
+          - '&7resulta em um bônus, que é aplicado'
+          - '&7em todos encantamentos.'
+          - ''
+          - ' &8▶ &7Qualidade: {quality}'
+          - ' &8▶ &7Bônus: &f{quality_bonus}x'
+          - ''
+          - '&cA qualidade já está no nível máximo!'
+    2:
+      slot: 29
+      action: 'UPGRADE:DIG_SPEED'
+      locked:
+        type: BARRIER
+        name: "&cEficiência"
+        lore:
+          - '&7Com uma boa eficiência, você'
+          - '&7conseguirá quebrar blocos'
+          - '&7com mais facilidade.'
+          - ''
+          - ' &8▶ &7Eficiência: &f{dig_speed} &8➟ &f{dig_speed_next}'
+          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ''
+          - '&cNecessário nível {required_level} ou superior!'
+      can-not-upgrade:
+        type: REDSTONE
+        name: "&cEficiência"
+        lore:
+          - '&7Com uma boa eficiência, você'
+          - '&7conseguirá quebrar blocos'
+          - '&7com mais facilidade.'
+          - ''
+          - ' &8▶ &7Eficiência: &f{dig_speed} &8➟ &f{dig_speed_next}'
+          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ''
+          - '&cEsse item não possui cristais suficientes!'
+      can-upgrade:
+        type: ENCHANTED_BOOK
+        name: "&aEficiência"
+        lore:
+          - '&7Com uma boa eficiência, você'
+          - '&7conseguirá quebrar blocos'
+          - '&7com mais facilidade.'
+          - ''
+          - ' &8▶ &7Eficiência: &f{dig_speed} &8➟ &f{dig_speed_next}'
+          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ''
+          - '&7Clique para evoluir!'
+      max-level:
+        type: NETHER_STAR
+        name: "&aEficiência"
+        lore:
+          - '&7Com uma boa eficiência, você'
+          - '&7conseguirá quebrar blocos'
+          - '&7com mais facilidade.'
+          - ''
+          - ' &8▶ &7Eficiência: &f{dig_speed}'
+          - ''
+          - '&cEsse encantamento já está no nível máximo!'
+    3:
+      slot: 30
+      action: 'UPGRADE:DURABILITY'
+      locked:
+        type: BARRIER
+        name: "&cInquebrável"
+        lore:
+          - '&7A resistência da sua picareta é'
+          - '&7importante para que ela não'
+          - '&7quebre inesperadamente.'
+          - ''
+          - ' &8▶ &7Inquebrável: &f{durability} &8➟ &f{durability_next}'
+          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ''
+          - '&cNecessário nível {required_level} ou superior!'
+      can-not-upgrade:
+        type: REDSTONE
+        name: "&cInquebrável"
+        lore:
+          - '&7A resistência da sua picareta é'
+          - '&7importante para que ela não'
+          - '&7quebre inesperadamente.'
+          - ''
+          - ' &8▶ &7Inquebrável: &f{durability} &8➟ &f{durability_next}'
+          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ''
+          - '&cEsse item não possui cristais suficientes!'
+      can-upgrade:
+        type: ENCHANTED_BOOK
+        name: "&aInquebrável"
+        lore:
+          - '&7A resistência da sua picareta é'
+          - '&7importante para que ela não'
+          - '&7quebre inesperadamente.'
+          - ''
+          - ' &8▶ &7Inquebrável: &f{durability} &8➟ &f{durability_next}'
+          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ''
+          - '&7Clique para evoluir!'
+      max-level:
+        type: NETHER_STAR
+        name: "&aInquebrável"
+        lore:
+          - '&7A resistência da sua picareta é'
+          - '&7importante para que ela não'
+          - '&7quebre inesperadamente.'
+          - ''
+          - ' &8▶ &7Inquebrável: &f{durability}'
+          - ''
+          - '&cEsse encantamento já está no nível máximo!'
+    4:
+      slot: 31
+      action: 'UPGRADE:LOOT_BONUS_BLOCKS'
+      locked:
+        type: BARRIER
+        name: "&cFortuna"
+        lore:
+          - '&7A fortuna é importante para'
+          - '&7aumentar a quantia de minérios'
+          - '&7recebidos e, consequentemente,'
+          - '&7o seu lucro.'
+          - ''
+          - ' &8▶ &7Fortuna: &f{loot_bonus_blocks} &8➟ &f{loot_bonus_blocks_next}'
+          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ''
+          - '&cNecessário nível {required_level} ou superior!'
+      can-not-upgrade:
+        type: REDSTONE
+        name: "&cFortuna"
+        lore:
+          - '&7A fortuna é importante para'
+          - '&7aumentar a quantia de minérios'
+          - '&7recebidos e, consequentemente,'
+          - '&7o seu lucro.'
+          - ''
+          - ' &8▶ &7Fortuna: &f{loot_bonus_blocks} &8➟ &f{loot_bonus_blocks_next}'
+          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ''
+          - '&cEsse item não possui cristais suficientes!'
+      can-upgrade:
+        type: ENCHANTED_BOOK
+        name: "&aFortuna"
+        lore:
+          - '&7A fortuna é importante para'
+          - '&7aumentar a quantia de minérios'
+          - '&7recebidos e, consequentemente,'
+          - '&7o seu lucro.'
+          - ''
+          - ' &8▶ &7Fortuna: &f{loot_bonus_blocks} &8➟ &f{loot_bonus_blocks_next}'
+          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ''
+          - '&7Clique para evoluir!'
+      max-level:
+        type: NETHER_STAR
+        name: "&aFortuna"
+        lore:
+          - '&7A fortuna é importante para'
+          - '&7aumentar a quantia de minérios'
+          - '&7recebidos e, consequentemente,'
+          - '&7o seu lucro.'
+          - ''
+          - ' &8▶ &7Fortuna: &f{loot_bonus_blocks}'
+          - ''
+          - '&cEsse encantamento já está no nível máximo!'
+    5:
+      slot: 32
+      action: 'UPGRADE:EXP'
+      locked:
+        type: BARRIER
+        name: "&cEXP"
+        lore:
+          - '&7Aumentando o EXP ganho, sua'
+          - '&7picareta irá evoluir mais rápido.'
+          - ''
+          - ' &8▶ &7Nível: &f{exp} &8➟ &f{exp_next}'
+          - ' &8▶ &7Bônus: &f{exp_multiplier}x &8➟ &f{exp_next_multiplier}x'
+          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ''
+          - '&cNecessário nível {required_level} ou superior!'
+      can-not-upgrade:
+        type: REDSTONE
+        name: "&cEXP"
+        lore:
+          - '&7Aumentando o EXP ganho, sua'
+          - '&7picareta irá evoluir mais rápido.'
+          - ''
+          - ' &8▶ &7Nível: &f{exp} &8➟ &f{exp_next}'
+          - ' &8▶ &7Bônus: &f{exp_multiplier}x &8➟ &f{exp_next_multiplier}x'
+          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ''
+          - '&cEsse item não possui cristais suficientes!'
+      can-upgrade:
+        type: ENCHANTED_BOOK
+        name: "&aEXP"
+        lore:
+          - '&7Aumentando o EXP ganho, sua'
+          - '&7picareta irá evoluir mais rápido.'
+          - ''
+          - ' &8▶ &7Nível: &f{exp} &8➟ &f{exp_next}'
+          - ' &8▶ &7Bônus: &f{exp_multiplier}x &8➟ &f{exp_next_multiplier}x'
+          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ''
+          - '&7Clique para evoluir!'
+      max-level:
+        type: NETHER_STAR
+        name: "&aEXP"
+        lore:
+          - '&7Aumentando o EXP ganho, sua'
+          - '&7picareta irá evoluir mais rápido.'
+          - ''
+          - ' &8▶ &7Nível: &f{exp}'
+          - ' &8▶ &7Bônus: &f{exp_multiplier}x'
+          - ''
+          - '&cEsse encantamento já está no nível máximo!'
+    6:
+      slot: 33
+      action: 'UPGRADE:EXPLOSION'
+      locked:
+        type: BARRIER
+        name: "&cExplosão"
+        lore:
+          - '&7Explodir uma área de mineração'
+          - '&7pode ser útil para conseguir um'
+          - '&7lucro alto em pouco tempo.'
+          - ''
+          - ' &8▶ &7Nível: &f{explosion} &8➟ &f{explosion_next}'
+          - ' &8▶ &7Chance: &f{explosion_chance}% &8➟ &f{explosion_next_chance}%'
+          - ' &8▶ &7Raio: &f{explosion_radius} &7blocos'
+          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ''
+          - '&cNecessário nível {required_level} ou superior!'
+      can-not-upgrade:
+        type: REDSTONE
+        name: "&cExplosão"
+        lore:
+          - '&7Explodir uma área de mineração'
+          - '&7pode ser útil para conseguir um'
+          - '&7lucro alto em pouco tempo.'
+          - ''
+          - ' &8▶ &7Nível: &f{explosion} &8➟ &f{explosion_next}'
+          - ' &8▶ &7Chance: &f{explosion_chance}% &8➟ &f{explosion_next_chance}%'
+          - ' &8▶ &7Raio: &f{explosion_radius} &7blocos'
+          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ''
+          - '&cEsse item não possui cristais suficientes!'
+      can-upgrade:
+        type: ENCHANTED_BOOK
+        name: "&aExplosão"
+        lore:
+          - '&7Explodir uma área de mineração'
+          - '&7pode ser útil para conseguir um'
+          - '&7lucro alto em pouco tempo.'
+          - ''
+          - ' &8▶ &7Nível: &f{explosion} &8➟ &f{explosion_next}'
+          - ' &8▶ &7Chance: &f{explosion_chance}% &8➟ &f{explosion_next_chance}%'
+          - ' &8▶ &7Raio: &f{explosion_radius} &7blocos'
+          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ''
+          - '&7Clique para evoluir!'
+      max-level:
+        type: NETHER_STAR
+        name: "&aExplosão"
+        lore:
+          - '&7Explodir uma área de mineração'
+          - '&7pode ser útil para conseguir um'
+          - '&7lucro alto em pouco tempo.'
+          - ''
+          - ' &8▶ &7Nível: &f{explosion}'
+          - ' &8▶ &7Chance: &f{explosion_chance}%'
+          - ' &8▶ &7Raio: &f{explosion_radius} &7blocos'
+          - ''
+          - '&cEsse encantamento já está no nível máximo!'

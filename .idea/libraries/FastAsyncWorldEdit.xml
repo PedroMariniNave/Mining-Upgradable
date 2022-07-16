@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="FastAsyncWorldEdit">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/main/resources/libraries/FastAsyncWorldEdit.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,36 @@
+Inventory:
+  title: "Editar Mina"
+  size: 27
+  items:
+    1:
+      action: EDIT_RESET
+      type: WATCH
+      name: "&6Tempo de Reset"
+      lore:
+        - '&7Atualmente essa mina reseta'
+        - '&7a cada: &f{reset} &7segundos!'
+        - ''
+        - '&7Clique para editar!'
+      slot: 11
+    2:
+      action: EDIT_REGION
+      type: STICK
+      name: "&6Região de Mineração"
+      lore:
+        - '&7Clique para definir a área!'
+      slot: 12
+    3:
+      action: RESET
+      type: FIREBALL
+      name: "&6Resetar"
+      lore:
+        - '&7Clique para resetar a mina!'
+      slot: 14
+    4:
+      action: MINE_BLOCKS
+      type: DIAMOND_ORE
+      name: "&6Blocos"
+      lore:
+        - '&7Clique para ver os blocos'
+        - '&7dessa mina!'
+      slot: 15

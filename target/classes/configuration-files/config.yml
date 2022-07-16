@@ -1,0 +1,163 @@
+MySQL:
+  enabled: false
+  host: 'localhost'
+  database: 'db'
+  username: 'user'
+  password: 'pass'
+  port: 3306
+
+Settings:
+  commands:
+    main:
+      command: mining
+      aliases: [mina, minas, minerar]
+    pickaxe:
+      command: pickaxe
+      aliases: [picareta]
+  admin-permission: mining.admin
+  save-interval: 600 # em segundos
+  pickaxe-pickup-cooldown: 5 # em segundos
+  quality-currency: 'cash'
+
+Messages:
+  invalid-block-material: '&6&lVoltz&f&lMC &8&l➜ &cVocê precisa estar segurando um bloco!'
+  invalid-region: '&6&lVoltz&f&lMC &8&l➜ &cVocê precisa selecionar uma região!'
+  invalid-amount: '&6&lVoltz&f&lMC &8&l➜ &cA quantia informada é inválida!'
+  cooldown: '&6&lVoltz&f&lMC &8&l➜ &cAguarde {cooldown} segundos antes de pegar outra picareta!'
+  choose-block-percentage:
+    - ''
+    - '&6&lVoltz&f&lMC &8&l➜ &7Digite no chat a porcentagem desse bloco!'
+    - ''
+    - ' &8▶ &7Mina: &f{mine}'
+    - ' &8▶ &7Bloco: &f{block}'
+    - ' &8▶ &7Porcentagem atual: &f{percentage}%'
+    - ''
+  choose-reset-time:
+    - ''
+    - '&6&lVoltz&f&lMC &8&l➜ &7Digite no chat a cada quantos segundos a mina irá resetar!'
+    - ''
+    - ' &8▶ &7Mina: &f{mine}'
+    - ' &8▶ &7Tempo atual: &f{time} &7segundos'
+    - ''
+
+Titles:
+  pickaxe-upgrade:
+    title: '&6&lPicareta'
+    subtitle: '&7Novo nível: &f{new_level}'
+
+Next-Page:
+  type: ARROW
+  name: '&aPróxima Página'
+
+Previous-Page:
+  type: ARROW
+  name: '&cPágina Anterior'
+
+Enchants:
+  dig_speed:
+    level:
+      initial: 0
+      max: 10
+      requirement-per-upgrade: 5
+    cost-per-level: 200
+  durability:
+    level:
+      initial: 0
+      max: 10
+      requirement-per-upgrade: 2
+    cost-per-level: 100
+  loot_bonus_blocks:
+    level:
+      initial: 0
+      max: 10
+      requirement-per-upgrade: 15
+    cost-per-level: 350
+  exp:
+    level:
+      initial: 0
+      max: 10
+      requirement-per-upgrade: 5
+    cost-per-level: 200
+    multiplier-per-level: 0.25 # exp * (1 + multiplier)
+  explosion:
+    level:
+      initial: 0
+      max: 10
+      requirement-per-upgrade: 20
+    cost-per-level: 1500
+    chance:
+      initial-value: 0
+      upgrade-per-level: 0.75
+    radius:
+      initial-value: 1
+      upgrade-per-level: 0
+
+Blocks-Exp:
+  fortune:
+    enabled: false
+    multiplier: 0.15 # exp * (1 + multiplier)
+  disabled-worlds:
+    - 'plotworld'
+  blocks:
+    - 'DIAMOND_ORE:25'
+    - 'EMERALD_ORE:20'
+
+Pickaxe-Item:
+  type: DIAMOND_PICKAXE
+  glow: true
+  hide-attributes: true
+  name: '&6Picareta'
+  lore:
+    - '&7Eficiência: &f{dig_speed}'
+    - '&7Inquebrável: &f{durability}'
+    - '&7Fortuna: &f{loot_bonus_blocks}'
+    - '&7EXP: &f{exp}'
+    - '&7Explosão: &f{explosion}'
+    - ''
+    - ' &8► &fNível: &7{level} {progress}'
+    - ' &8► &fGemas: &7{points} &6&l✦'
+    - ' &8► &fQualidade: {quality}'
+    - ''
+    - '&8Clique para evoluir!'
+
+Points-Item:
+  type: SKULL_ITEM
+  owner: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWFjZTZiYjNhYTRjY2FjMDMxMTY4MjAyZjZkNDUzMjU5N2JjYWM2MzUxMDU5YWJkOWQxMGIyODYxMDQ5M2FlYiJ9fX0=
+  name: '&6Gema &l✦ &7[&fx{amount}&7]'
+  lore:
+    - '&7Aplique esse item na sua'
+    - '&7picareta para evoluir'
+    - '&7os encantamentos!'
+
+Quality:
+  initial: 0
+  max: 5
+  item-level-per-quality: 100
+  cost-per-quality: 10
+  bonus-per-quality: 0.4
+  symbol: '✯'
+  complete-color: '&e'
+  incomplete-color: '&8'
+
+Progress:
+  display-amount: 10
+  symbol: '❙'
+  complete-color: '&a'
+  incomplete-color: '&8'
+
+Experience-Formula: # base + (base * level ^ exponent)
+  base-exp: 1250
+  exponent: 1.35
+
+Number-Formatter:
+  - "k"
+  - "M"
+  - "B"
+  - "T"
+  - "Q"
+  - "QQ"
+  - "S"
+  - "SS"
+  - "O"
+  - "N"
+  - "D"
