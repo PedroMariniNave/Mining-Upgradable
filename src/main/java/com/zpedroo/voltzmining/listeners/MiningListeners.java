@@ -8,6 +8,7 @@ import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import com.zpedroo.voltzmining.api.BlockExplodeEvent;
 import com.zpedroo.voltzmining.enums.EnchantProperty;
 import com.zpedroo.voltzmining.managers.DataManager;
+import com.zpedroo.voltzmining.managers.RewardManager;
 import com.zpedroo.voltzmining.objects.general.Enchant;
 import com.zpedroo.voltzmining.objects.player.PlayerData;
 import com.zpedroo.voltzmining.utils.pickaxe.PickaxeUtils;
@@ -36,6 +37,8 @@ public class MiningListeners implements Listener {
 
         ItemStack item = player.getItemInHand();
         if (!PickaxeUtils.isPickaxe(item)) return;
+
+        RewardManager.getInstance().handleRewardsChance(player);
 
         PlayerData data = DataManager.getInstance().getPlayerData(player);
         data.addBlocks(BigInteger.ONE);

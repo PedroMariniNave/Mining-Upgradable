@@ -8,28 +8,33 @@ import com.zpedroo.voltzmining.VoltzMining;
 import com.zpedroo.voltzmining.enums.EnchantProperty;
 import com.zpedroo.voltzmining.mysql.DBConnection;
 import com.zpedroo.voltzmining.objects.general.Enchant;
+import com.zpedroo.voltzmining.objects.general.Reward;
+import com.zpedroo.voltzmining.objects.general.SoundProperties;
 import com.zpedroo.voltzmining.objects.mine.Mine;
 import com.zpedroo.voltzmining.objects.player.PlayerData;
 import com.zpedroo.voltzmining.utils.FileUtils;
+import com.zpedroo.voltzmining.utils.builder.ItemBuilder;
+import com.zpedroo.voltzmining.utils.color.Colorize;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Getter
 @Setter
 public class DataCache {
 
+    private List<PlayerData> topBrokenBlocks;
+    private final List<Reward> rewards = getRewardsFromFile();
     private final Map<String, Enchant> enchants = getEnchantsFromConfig();
     private final Map<Player, PlayerData> playerData = new HashMap<>(64);
     private Map<String, Mine> mines = null;
-    private List<PlayerData> topBrokenBlocks;
 
     public DataCache() {
         VoltzMining.get().getServer().getScheduler().runTaskLaterAsynchronously(VoltzMining.get(), () -> {
@@ -43,6 +48,28 @@ public class DataCache {
         }
         
         return topBrokenBlocks;
+    }
+
+    private List<Reward> getRewardsFromFile() {
+        FileUtils.Files file = FileUtils.Files.REWARDS;
+        List<Reward> ret = new LinkedList<>();
+        for (String str : FileUtils.get().getSection(file, "Rewards")) {
+            double chance = FileUtils.get().getDouble(file, "Rewards." + str + ".chance");
+            String entityName = FileUtils.get().getString(file, "Rewards." + str + ".entity");
+            List<String> spawnMessages = Colorize.getColored(FileUtils.get().getStringList(file, "Rewards." + str + ".messages.spawn"));
+            List<String> collectMessages = Colorize.getColored(FileUtils.get().getStringList(file, "Rewards." + str + ".messages.collect"));
+            List<String> commands = FileUtils.get().getStringList(file, "Rewards." + str + ".commands");
+            SoundProperties spawnSound = loadSound("Rewards." + str + ".sounds.spawn", file);
+            SoundProperties collectSound = loadSound("Rewards." + str + ".sounds.collect", file);
+            ItemStack itemToGive = null;
+            if (FileUtils.get().getFile(file).get().contains("Rewards." + str + ".item-to-give")) {
+                itemToGive = ItemBuilder.build(FileUtils.get().getFile(file).get(), "Rewards." + str + ".item-to-give").build();
+            }
+
+            ret.add(new Reward(chance, entityName, spawnMessages, collectMessages, commands, spawnSound, collectSound, itemToGive));
+        }
+
+        return ret;
     }
 
     private Map<String, Enchant> getEnchantsFromConfig() {
@@ -106,6 +133,15 @@ public class DataCache {
         }
 
         return ret;
+    }
+
+    private SoundProperties loadSound(String where, FileUtils.Files file) {
+        boolean enabled = FileUtils.get().getBoolean(file, where + ".enabled");
+        Sound sound = Sound.valueOf(FileUtils.get().getString(file, where + ".sound"));
+        float volume = FileUtils.get().getFloat(file, where + ".volume");
+        float pitch = FileUtils.get().getFloat(file, where + ".pitch");
+
+        return new SoundProperties(enabled, sound, volume, pitch);
     }
 
     private Enchant loadEnchant(String enchantName, FileUtils.Files file) {

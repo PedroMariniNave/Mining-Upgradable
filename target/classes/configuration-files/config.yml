@@ -17,13 +17,17 @@ Settings:
   admin-permission: mining.admin
   save-interval: 600 # em segundos
   pickaxe-pickup-cooldown: 5 # em segundos
+  reward-disappear-time: 10 # em segundos
   quality-currency: 'cash'
+  reward-entity-name: '&6Recompensa de {player}'
 
 Messages:
   invalid-block-material: '&6&lVoltz&f&lMC &8&l➜ &cVocê precisa estar segurando um bloco!'
   invalid-region: '&6&lVoltz&f&lMC &8&l➜ &cVocê precisa selecionar uma região!'
   invalid-amount: '&6&lVoltz&f&lMC &8&l➜ &cA quantia informada é inválida!'
   cooldown: '&6&lVoltz&f&lMC &8&l➜ &cAguarde {cooldown} segundos antes de pegar outra picareta!'
+  reward-disappear:
+    - '&cVocê não coletou sua recompensa! Infelizmente ela desapareceu.'
   choose-block-percentage:
     - ''
     - '&6&lVoltz&f&lMC &8&l➜ &7Digite no chat a porcentagem desse bloco!'

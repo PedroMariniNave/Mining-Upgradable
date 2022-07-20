@@ -111,6 +111,7 @@ public class FileUtils {
 
     public enum Files {
         CONFIG("config", "configuration-files", ""),
+        REWARDS("rewards", "configuration-files", ""),
         MINES("mines", "configuration-files", ""),
         UPGRADE("upgrade", "menus", "menus"),
         MAIN("main", "menus", "menus"),

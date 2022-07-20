@@ -5,12 +5,18 @@ import com.zpedroo.voltzmining.commands.PickaxeCmd;
 import com.zpedroo.voltzmining.hooks.PlaceholderAPIHook;
 import com.zpedroo.voltzmining.listeners.*;
 import com.zpedroo.voltzmining.managers.DataManager;
+import com.zpedroo.voltzmining.managers.RewardManager;
 import com.zpedroo.voltzmining.mysql.DBConnection;
+import com.zpedroo.voltzmining.nms.BabyRainbowSheep;
+import com.zpedroo.voltzmining.nms.CustomEntityRegistry;
+import com.zpedroo.voltzmining.nms.BabyZombieEntity;
 import com.zpedroo.voltzmining.tasks.SaveTask;
 import com.zpedroo.voltzmining.utils.FileUtils;
 import com.zpedroo.voltzmining.utils.cooldown.Cooldown;
 import com.zpedroo.voltzmining.utils.formatter.NumberFormatter;
 import com.zpedroo.voltzmining.utils.menus.Menus;
+import net.minecraft.server.v1_8_R3.EntitySheep;
+import net.minecraft.server.v1_8_R3.EntityZombie;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandMap;
@@ -44,10 +50,12 @@ public class VoltzMining extends JavaPlugin {
         new DBConnection(getConfig());
         new NumberFormatter(getConfig());
         new DataManager();
+        new RewardManager();
         new Menus();
         new Cooldown();
         new SaveTask(this);
 
+        registerCustomEntities();
         registerHooks();
         registerListeners();
         registerCommand(MAIN_COMMAND, MAIN_COMMAND_ALIASES, new MiningCmd());
@@ -66,6 +74,11 @@ public class VoltzMining extends JavaPlugin {
         }
     }
 
+    private void registerCustomEntities() {
+        CustomEntityRegistry.registerEntity("", 54, EntityZombie.class, BabyZombieEntity.class);
+        CustomEntityRegistry.registerEntity("", 91, EntitySheep.class, BabyRainbowSheep.class);
+    }
+
     private void registerHooks() {
         if (getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
             new PlaceholderAPIHook(this).register();
@@ -82,6 +95,7 @@ public class VoltzMining extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new MiningListeners(), this);
         getServer().getPluginManager().registerEvents(new PlayerGeneralListeners(), this);
         getServer().getPluginManager().registerEvents(new PointsListeners(), this);
+        getServer().getPluginManager().registerEvents(new RewardListeners(), this);
     }
 
     private void registerCommand(String command, List<String> aliases, CommandExecutor executor) {
@@ -102,7 +116,7 @@ public class VoltzMining extends JavaPlugin {
         }
     }
 
-    private Boolean isMySQLEnabled(FileConfiguration file) {
+    private boolean isMySQLEnabled(FileConfiguration file) {
         if (!file.contains("MySQL.enabled")) return false;
 
         return file.getBoolean("MySQL.enabled");
