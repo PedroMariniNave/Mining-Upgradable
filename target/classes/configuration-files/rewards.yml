@@ -1,0 +1,51 @@
+Rewards:
+  1:
+    chance: 1
+    entity: BABY_ZOMBIE
+    commands:
+      - 'cratesadmin give {player} Combat 1'
+    messages:
+      spawn:
+        - ''
+        - '&7Você encontrou uma recompensa!'
+        - ''
+      collect:
+        - ''
+        - '&7Recompensa encontrada: &4Chave de Combate &fx1'
+        - ''
+    sounds:
+      spawn:
+        enabled: true
+        sound: NOTE_STICKS
+        volume: 10
+        pitch: 4
+      collect:
+        enabled: true
+        sound: ITEM_PICKUP
+        volume: 10
+        pitch: 1
+  2:
+    chance: 5
+    entity: BABY_ZOMBIE
+    item-to-give:
+      type: DIAMOND
+    messages:
+      spawn:
+        - ''
+        - '&7Você encontrou uma recompensa!'
+        - ''
+      collect:
+        - ''
+        - '&7Recompensa encontrada: &bDiamante &fx1'
+        - ''
+    sounds:
+      spawn:
+        enabled: true
+        sound: NOTE_STICKS
+        volume: 10
+        pitch: 4
+      collect:
+        enabled: true
+        sound: ITEM_PICKUP
+        volume: 10
+        pitch: 1
