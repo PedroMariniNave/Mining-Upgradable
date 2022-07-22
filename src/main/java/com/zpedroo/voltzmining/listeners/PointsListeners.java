@@ -39,8 +39,8 @@ public class PointsListeners implements Listener {
         final int itemAmount = cursor.getAmount();
         event.setCursor(new ItemStack(Material.AIR));
 
-        int pointsAmount = cursorNBT.getInteger(PickaxeUtils.POINTS_ITEM_NBT);
-        int finalPointsAmount = pointsAmount * itemAmount;
+        long pointsAmount = cursorNBT.getLong(PickaxeUtils.POINTS_ITEM_NBT);
+        long finalPointsAmount = pointsAmount * itemAmount;
         ItemStack newItem = PickaxeUtils.addItemPoints(item, finalPointsAmount);
 
         player.getInventory().setItem(event.getSlot(), newItem);

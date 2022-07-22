@@ -73,7 +73,7 @@ Inventory:
           - '&7com mais facilidade.'
           - ''
           - ' &8▶ &7Eficiência: &f{dig_speed} &8➟ &f{dig_speed_next}'
-          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ' &8▶ &7Custo: &f{cost} &6&l❒'
           - ''
           - '&cNecessário nível {required_level} ou superior!'
       can-not-upgrade:
@@ -85,9 +85,9 @@ Inventory:
           - '&7com mais facilidade.'
           - ''
           - ' &8▶ &7Eficiência: &f{dig_speed} &8➟ &f{dig_speed_next}'
-          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ' &8▶ &7Custo: &f{cost} &6&l❒'
           - ''
-          - '&cEsse item não possui cristais suficientes!'
+          - '&cEsse item não possui blocos suficientes!'
       can-upgrade:
         type: ENCHANTED_BOOK
         name: "&aEficiência"
@@ -97,7 +97,7 @@ Inventory:
           - '&7com mais facilidade.'
           - ''
           - ' &8▶ &7Eficiência: &f{dig_speed} &8➟ &f{dig_speed_next}'
-          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ' &8▶ &7Custo: &f{cost} &6&l❒'
           - ''
           - '&7Clique para evoluir!'
       max-level:
@@ -123,7 +123,7 @@ Inventory:
           - '&7quebre inesperadamente.'
           - ''
           - ' &8▶ &7Inquebrável: &f{durability} &8➟ &f{durability_next}'
-          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ' &8▶ &7Custo: &f{cost} &6&l❒'
           - ''
           - '&cNecessário nível {required_level} ou superior!'
       can-not-upgrade:
@@ -135,9 +135,9 @@ Inventory:
           - '&7quebre inesperadamente.'
           - ''
           - ' &8▶ &7Inquebrável: &f{durability} &8➟ &f{durability_next}'
-          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ' &8▶ &7Custo: &f{cost} &6&l❒'
           - ''
-          - '&cEsse item não possui cristais suficientes!'
+          - '&cEsse item não possui blocos suficientes!'
       can-upgrade:
         type: ENCHANTED_BOOK
         name: "&aInquebrável"
@@ -147,7 +147,7 @@ Inventory:
           - '&7quebre inesperadamente.'
           - ''
           - ' &8▶ &7Inquebrável: &f{durability} &8➟ &f{durability_next}'
-          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ' &8▶ &7Custo: &f{cost} &6&l❒'
           - ''
           - '&7Clique para evoluir!'
       max-level:
@@ -174,7 +174,7 @@ Inventory:
           - '&7o seu lucro.'
           - ''
           - ' &8▶ &7Fortuna: &f{loot_bonus_blocks} &8➟ &f{loot_bonus_blocks_next}'
-          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ' &8▶ &7Custo: &f{cost} &6&l❒'
           - ''
           - '&cNecessário nível {required_level} ou superior!'
       can-not-upgrade:
@@ -187,9 +187,9 @@ Inventory:
           - '&7o seu lucro.'
           - ''
           - ' &8▶ &7Fortuna: &f{loot_bonus_blocks} &8➟ &f{loot_bonus_blocks_next}'
-          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ' &8▶ &7Custo: &f{cost} &6&l❒'
           - ''
-          - '&cEsse item não possui cristais suficientes!'
+          - '&cEsse item não possui blocos suficientes!'
       can-upgrade:
         type: ENCHANTED_BOOK
         name: "&aFortuna"
@@ -200,7 +200,7 @@ Inventory:
           - '&7o seu lucro.'
           - ''
           - ' &8▶ &7Fortuna: &f{loot_bonus_blocks} &8➟ &f{loot_bonus_blocks_next}'
-          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ' &8▶ &7Custo: &f{cost} &6&l❒'
           - ''
           - '&7Clique para evoluir!'
       max-level:
@@ -227,7 +227,7 @@ Inventory:
           - ''
           - ' &8▶ &7Nível: &f{exp} &8➟ &f{exp_next}'
           - ' &8▶ &7Bônus: &f{exp_multiplier}x &8➟ &f{exp_next_multiplier}x'
-          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ' &8▶ &7Custo: &f{cost} &6&l❒'
           - ''
           - '&cNecessário nível {required_level} ou superior!'
       can-not-upgrade:
@@ -239,9 +239,9 @@ Inventory:
           - ''
           - ' &8▶ &7Nível: &f{exp} &8➟ &f{exp_next}'
           - ' &8▶ &7Bônus: &f{exp_multiplier}x &8➟ &f{exp_next_multiplier}x'
-          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ' &8▶ &7Custo: &f{cost} &6&l❒'
           - ''
-          - '&cEsse item não possui cristais suficientes!'
+          - '&cEsse item não possui blocos suficientes!'
       can-upgrade:
         type: ENCHANTED_BOOK
         name: "&aEXP"
@@ -251,7 +251,7 @@ Inventory:
           - ''
           - ' &8▶ &7Nível: &f{exp} &8➟ &f{exp_next}'
           - ' &8▶ &7Bônus: &f{exp_multiplier}x &8➟ &f{exp_next_multiplier}x'
-          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ' &8▶ &7Custo: &f{cost} &6&l❒'
           - ''
           - '&7Clique para evoluir!'
       max-level:
@@ -279,7 +279,7 @@ Inventory:
           - ' &8▶ &7Nível: &f{explosion} &8➟ &f{explosion_next}'
           - ' &8▶ &7Chance: &f{explosion_chance}% &8➟ &f{explosion_next_chance}%'
           - ' &8▶ &7Raio: &f{explosion_radius} &7blocos'
-          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ' &8▶ &7Custo: &f{cost} &6&l❒'
           - ''
           - '&cNecessário nível {required_level} ou superior!'
       can-not-upgrade:
@@ -293,9 +293,9 @@ Inventory:
           - ' &8▶ &7Nível: &f{explosion} &8➟ &f{explosion_next}'
           - ' &8▶ &7Chance: &f{explosion_chance}% &8➟ &f{explosion_next_chance}%'
           - ' &8▶ &7Raio: &f{explosion_radius} &7blocos'
-          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ' &8▶ &7Custo: &f{cost} &6&l❒'
           - ''
-          - '&cEsse item não possui cristais suficientes!'
+          - '&cEsse item não possui blocos suficientes!'
       can-upgrade:
         type: ENCHANTED_BOOK
         name: "&aExplosão"
@@ -307,7 +307,7 @@ Inventory:
           - ' &8▶ &7Nível: &f{explosion} &8➟ &f{explosion_next}'
           - ' &8▶ &7Chance: &f{explosion_chance}% &8➟ &f{explosion_next_chance}%'
           - ' &8▶ &7Raio: &f{explosion_radius} &7blocos'
-          - ' &8▶ &7Custo: &f{cost} &6&l✦'
+          - ' &8▶ &7Custo: &f{cost} &6&l❒'
           - ''
           - '&7Clique para evoluir!'
       max-level:

@@ -91,7 +91,7 @@ public class VoltzMining extends JavaPlugin {
 
     private void registerListeners() {
         getServer().getPluginManager().registerEvents(new EditMineListeners(), this);
-        getServer().getPluginManager().registerEvents(new EXPListeners(), this);
+        getServer().getPluginManager().registerEvents(new PickaxeListeners(), this);
         getServer().getPluginManager().registerEvents(new MiningListeners(), this);
         getServer().getPluginManager().registerEvents(new PlayerGeneralListeners(), this);
         getServer().getPluginManager().registerEvents(new PointsListeners(), this);

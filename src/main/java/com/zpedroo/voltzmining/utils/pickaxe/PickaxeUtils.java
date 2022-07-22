@@ -32,17 +32,17 @@ public class PickaxeUtils {
     public static final String QUALITY_NBT = "PickaxeQuality";
     public static final String IDENTIFIER_NBT = "Pickaxe";
 
-    public static ItemStack addItemPoints(@NotNull ItemStack item, int amount) {
+    public static ItemStack addItemPoints(@NotNull ItemStack item, long amount) {
         return setItemPoints(item, getItemPoints(item) + amount);
     }
 
-    public static ItemStack removeItemPoints(@NotNull ItemStack item, int amount) {
+    public static ItemStack removeItemPoints(@NotNull ItemStack item, long amount) {
         return setItemPoints(item, getItemPoints(item) - amount);
     }
 
-    public static ItemStack setItemPoints(@NotNull ItemStack item, int amount) {
+    public static ItemStack setItemPoints(@NotNull ItemStack item, long amount) {
         NBTItem nbt = new NBTItem(item);
-        nbt.setInteger(PICKAXE_POINTS_NBT, amount);
+        nbt.setLong(PICKAXE_POINTS_NBT, amount);
 
         return Items.getPickaxeItem(nbt.getItem());
     }
@@ -76,11 +76,11 @@ public class PickaxeUtils {
         return nbt.getInteger(QUALITY_NBT);
     }
 
-    public static int getItemPoints(@NotNull ItemStack item) {
+    public static long getItemPoints(@NotNull ItemStack item) {
         NBTItem nbt = new NBTItem(item);
         if (!nbt.hasKey(PICKAXE_POINTS_NBT)) return 0;
 
-        return nbt.getInteger(PICKAXE_POINTS_NBT);
+        return nbt.getLong(PICKAXE_POINTS_NBT);
     }
 
     public static double getPropertyValue(Enchant enchant, EnchantProperty property) {
@@ -235,7 +235,7 @@ public class PickaxeUtils {
     public static boolean canUpgradeEnchant(ItemStack item, Enchant enchant) {
         if (!isUnlockedEnchant(item, enchant) || isMaxEnchantLevel(item, enchant)) return false;
 
-        int itemPointsAmount = getItemPoints(item);
+        long itemPointsAmount = getItemPoints(item);
         int upgradeCost = getEnchantUpgradeCost(item, enchant);
 
         return itemPointsAmount >= upgradeCost;
@@ -274,7 +274,7 @@ public class PickaxeUtils {
             return currencyAmount.compareTo(upgradeCost) >= 0;
         }
 
-        int itemPointsAmount = getItemPoints(item);
+        long itemPointsAmount = getItemPoints(item);
         return itemPointsAmount >= upgradeCost.intValue();
     }
 

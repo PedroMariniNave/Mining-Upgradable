@@ -13,6 +13,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,15 +23,15 @@ public class Items {
     private static final ItemStack PICKAXE_ITEM = ItemBuilder.build(FileUtils.get().getFile(FileUtils.Files.CONFIG).get(), "Pickaxe-Item").build();
 
     @NotNull
-    public static ItemStack getPointsItem(int amount) {
+    public static ItemStack getPointsItem(long amount) {
         NBTItem nbt = new NBTItem(POINTS_ITEM.clone());
-        nbt.setInteger(PickaxeUtils.POINTS_ITEM_NBT, amount);
+        nbt.setLong(PickaxeUtils.POINTS_ITEM_NBT, amount);
 
         String[] placeholders = new String[]{
                 "{amount}"
         };
         String[] replacers = new String[]{
-                NumberFormatter.getInstance().formatThousand(amount)
+                NumberFormatter.getInstance().format(BigInteger.valueOf(amount))
         };
 
         return replaceItemPlaceholders(nbt.getItem(), placeholders, replacers);
@@ -64,7 +65,7 @@ public class Items {
         }
 
         nbt.setDouble(PickaxeUtils.EXPERIENCE_NBT, PickaxeUtils.getItemExperience(baseItem));
-        nbt.setInteger(PickaxeUtils.PICKAXE_POINTS_NBT, PickaxeUtils.getItemPoints(baseItem));
+        nbt.setLong(PickaxeUtils.PICKAXE_POINTS_NBT, PickaxeUtils.getItemPoints(baseItem));
         nbt.setInteger(PickaxeUtils.QUALITY_NBT, PickaxeUtils.getItemQuality(baseItem));
 
         ItemStack item = nbt.getItem();

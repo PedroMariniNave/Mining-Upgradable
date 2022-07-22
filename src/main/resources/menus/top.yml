@@ -12,4 +12,4 @@ Item:
     - '&7do jogador:'
     - ''
     - ' &8▶ &7Blocos Minerados: &f{broken_blocks} &e❒'
-    - ' &8▶ &7Saldo de Blocos: &f{available_blocks} &e❒'
+#    - ' &8▶ &7Saldo de Blocos: &f{available_blocks} &e❒'

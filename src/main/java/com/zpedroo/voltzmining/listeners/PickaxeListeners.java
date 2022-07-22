@@ -4,7 +4,7 @@ import com.zpedroo.voltzmining.enums.EnchantProperty;
 import com.zpedroo.voltzmining.managers.DataManager;
 import com.zpedroo.voltzmining.objects.general.BlockProperties;
 import com.zpedroo.voltzmining.objects.general.Enchant;
-import com.zpedroo.voltzmining.utils.config.BlocksEXP;
+import com.zpedroo.voltzmining.utils.config.Blocks;
 import com.zpedroo.voltzmining.utils.config.Titles;
 import com.zpedroo.voltzmining.utils.formatter.NumberFormatter;
 import com.zpedroo.voltzmining.utils.pickaxe.PickaxeUtils;
@@ -19,14 +19,14 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Nullable;
 
-public class EXPListeners implements Listener {
+public class PickaxeListeners implements Listener {
 
-    @EventHandler(priority = EventPriority.HIGHEST)
+    @EventHandler(priority = EventPriority.HIGH)
     public void onBlockBreak(BlockBreakEvent event) {
         if (event.isCancelled()) return;
 
         Player player = event.getPlayer();
-        if (BlocksEXP.DISABLED_WORLDS.contains(player.getWorld().getName())) return;
+        if (Blocks.DISABLED_WORLDS.contains(player.getWorld().getName())) return;
 
         ItemStack item = player.getItemInHand();
         if (!PickaxeUtils.isPickaxe(item)) return;
@@ -41,13 +41,14 @@ public class EXPListeners implements Listener {
         double expAmount = blockProperties.getExpAmount();
         double expToGive = expAmount * bonus;
 
-        if (BlocksEXP.FORTUNE_ENABLED) {
+        if (Blocks.FORTUNE_ENABLED) {
             int enchantmentLevel = item.getEnchantmentLevel(Enchantment.LOOT_BONUS_BLOCKS);
-            double multiplier = 1 + (enchantmentLevel * BlocksEXP.FORTUNE_MULTIPLIER);
+            double multiplier = 1 + (enchantmentLevel * Blocks.FORTUNE_MULTIPLIER);
             expToGive *= multiplier;
         }
 
         ItemStack newItem = PickaxeUtils.addItemExperience(item, expToGive);
+        newItem = PickaxeUtils.addItemPoints(newItem, 1);
         int newLevel = PickaxeUtils.getItemLevel(newItem);
 
         if (isNewLevel(oldLevel, newLevel)) {
@@ -59,7 +60,7 @@ public class EXPListeners implements Listener {
 
     @Nullable
     private BlockProperties getBlockProperties(Block block) {
-        return BlocksEXP.BLOCKS.stream().filter(blockProperties -> blockProperties.getMaterial().equals(block.getType())).findAny().orElse(null);
+        return Blocks.LIST.stream().filter(blockProperties -> blockProperties.getMaterial().equals(block.getType())).findAny().orElse(null);
     }
 
     private void sendUpgradeTitle(Player player, int oldLevel, int newLevel) {
