@@ -48,7 +48,7 @@ public class PickaxeListeners implements Listener {
         }
 
         ItemStack newItem = PickaxeUtils.addItemExperience(item, expToGive);
-        newItem = PickaxeUtils.addItemPoints(newItem, 1);
+        newItem = PickaxeUtils.addItemPoints(newItem, blockProperties.getPointsAmount());
         int newLevel = PickaxeUtils.getItemLevel(newItem);
 
         if (isNewLevel(oldLevel, newLevel)) {

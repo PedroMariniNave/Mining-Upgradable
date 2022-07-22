@@ -15,6 +15,7 @@ import com.zpedroo.voltzmining.objects.player.PlayerData;
 import com.zpedroo.voltzmining.utils.FileUtils;
 import com.zpedroo.voltzmining.utils.builder.ItemBuilder;
 import com.zpedroo.voltzmining.utils.color.Colorize;
+import com.zpedroo.voltzmining.utils.formatter.NumberFormatter;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
@@ -24,6 +25,7 @@ import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import java.math.BigInteger;
 import java.util.*;
 
 @Getter
@@ -150,7 +152,7 @@ public class DataCache {
         int initialLevel = FileUtils.get().getInt(file, "Enchants." + enchantName + ".level.initial");
         int maxLevel = FileUtils.get().getInt(file, "Enchants." + enchantName + ".level.max");
         int requiredLevel = FileUtils.get().getInt(file, "Enchants." + enchantName + ".level.requirement-per-upgrade");
-        int costPerLevel = FileUtils.get().getInt(file, "Enchants." + enchantName + ".cost-per-level");
+        BigInteger costPerLevel = NumberFormatter.getInstance().filter(FileUtils.get().getString(file, "Enchants." + enchantName + ".cost-per-level", "0"));
         double chanceInitialValue = FileUtils.get().getDouble(file, "Enchants." + enchantName + ".chance.initial-value");
         double chancePerLevel = FileUtils.get().getDouble(file, "Enchants." + enchantName + ".chance.upgrade-per-level");
         double multiplierPerLevel = FileUtils.get().getDouble(file, "Enchants." + enchantName + ".multiplier-per-level");

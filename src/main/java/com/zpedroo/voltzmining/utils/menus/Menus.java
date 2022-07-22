@@ -389,7 +389,7 @@ public class Menus extends InventoryUtils {
             replacers.add(QUALITY_CURRENCY == null ? NumberFormatter.getInstance().format(upgradeCost) : QUALITY_CURRENCY.getAmountDisplay(upgradeCost));
             replacers.add(NumberFormatter.getInstance().formatThousand(upgradeLevelRequired));
         } else {
-            upgradeCost = BigInteger.valueOf(PickaxeUtils.getEnchantUpgradeCost(item, enchant));
+            upgradeCost = PickaxeUtils.getEnchantUpgradeCost(item, enchant);
             upgradeLevelRequired = PickaxeUtils.getEnchantUpgradeLevelRequired(item, enchant);
 
             replacers.add(NumberFormatter.getInstance().format(upgradeCost));

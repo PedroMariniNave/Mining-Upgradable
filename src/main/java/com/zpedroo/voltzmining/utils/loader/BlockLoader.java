@@ -1,10 +1,12 @@
 package com.zpedroo.voltzmining.utils.loader;
 
 import com.zpedroo.voltzmining.objects.general.BlockProperties;
+import com.zpedroo.voltzmining.utils.formatter.NumberFormatter;
 import org.bukkit.Material;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,14 +24,15 @@ public class BlockLoader {
 
     @Nullable
     public static BlockProperties load(String str) {
-        String[] split = str.split(":");
-        if (split.length <= 1) return null;
+        String[] split = str.split(",");
+        if (split.length <= 2) return null;
 
         Material material = Material.getMaterial(split[0].toUpperCase());
         if (material == null) return null;
 
-        double xp = Double.parseDouble(split[1]);
+        double expAmount = Double.parseDouble(split[1]);
+        BigInteger pointsAmount = NumberFormatter.getInstance().filter(split[2]);
 
-        return new BlockProperties(material, xp);
+        return new BlockProperties(material, expAmount, pointsAmount);
     }
 }

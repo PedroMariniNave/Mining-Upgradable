@@ -65,7 +65,7 @@ public class Items {
         }
 
         nbt.setDouble(PickaxeUtils.EXPERIENCE_NBT, PickaxeUtils.getItemExperience(baseItem));
-        nbt.setLong(PickaxeUtils.PICKAXE_POINTS_NBT, PickaxeUtils.getItemPoints(baseItem));
+        nbt.setString(PickaxeUtils.PICKAXE_POINTS_NBT, PickaxeUtils.getItemPoints(baseItem).toString());
         nbt.setInteger(PickaxeUtils.QUALITY_NBT, PickaxeUtils.getItemQuality(baseItem));
 
         ItemStack item = nbt.getItem();

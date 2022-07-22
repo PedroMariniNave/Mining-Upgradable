@@ -32,17 +32,17 @@ public class PickaxeUtils {
     public static final String QUALITY_NBT = "PickaxeQuality";
     public static final String IDENTIFIER_NBT = "Pickaxe";
 
-    public static ItemStack addItemPoints(@NotNull ItemStack item, long amount) {
-        return setItemPoints(item, getItemPoints(item) + amount);
+    public static ItemStack addItemPoints(@NotNull ItemStack item, BigInteger amount) {
+        return setItemPoints(item, getItemPoints(item).add(amount));
     }
 
-    public static ItemStack removeItemPoints(@NotNull ItemStack item, long amount) {
-        return setItemPoints(item, getItemPoints(item) - amount);
+    public static ItemStack removeItemPoints(@NotNull ItemStack item, BigInteger amount) {
+        return setItemPoints(item, getItemPoints(item).subtract(amount));
     }
 
-    public static ItemStack setItemPoints(@NotNull ItemStack item, long amount) {
+    public static ItemStack setItemPoints(@NotNull ItemStack item, BigInteger amount) {
         NBTItem nbt = new NBTItem(item);
-        nbt.setLong(PICKAXE_POINTS_NBT, amount);
+        nbt.setString(PICKAXE_POINTS_NBT, amount.toString());
 
         return Items.getPickaxeItem(nbt.getItem());
     }
@@ -76,11 +76,11 @@ public class PickaxeUtils {
         return nbt.getInteger(QUALITY_NBT);
     }
 
-    public static long getItemPoints(@NotNull ItemStack item) {
+    public static BigInteger getItemPoints(@NotNull ItemStack item) {
         NBTItem nbt = new NBTItem(item);
-        if (!nbt.hasKey(PICKAXE_POINTS_NBT)) return 0;
+        if (!nbt.hasKey(PICKAXE_POINTS_NBT)) return BigInteger.ZERO;
 
-        return nbt.getLong(PICKAXE_POINTS_NBT);
+        return new BigInteger(nbt.getString(PICKAXE_POINTS_NBT));
     }
 
     public static double getPropertyValue(Enchant enchant, EnchantProperty property) {
@@ -135,13 +135,13 @@ public class PickaxeUtils {
         return Items.getPickaxeItem(nbtItem);
     }
 
-    public static int getEnchantUpgradeCost(@NotNull ItemStack item, @Nullable Enchant enchant) {
-        if (enchant == null) return 0;
+    public static BigInteger getEnchantUpgradeCost(@NotNull ItemStack item, @Nullable Enchant enchant) {
+        if (enchant == null) return BigInteger.ZERO;
 
         int enchantLevel = getEnchantmentLevel(item, enchant) + 1; // level can be zero
-        int costPerLevel = enchant.getCostPerLevel();
+        BigInteger costPerLevel = enchant.getCostPerLevel();
 
-        return enchantLevel * costPerLevel;
+        return BigInteger.valueOf(enchantLevel).multiply(costPerLevel);
     }
 
     public static int getEnchantUpgradeLevelRequired(@NotNull ItemStack item, @Nullable Enchant enchant) {
@@ -155,7 +155,7 @@ public class PickaxeUtils {
     }
 
     public static ItemStack upgradeEnchantment(@NotNull ItemStack item, @NotNull Enchant enchant) {
-        int upgradeCost = getEnchantUpgradeCost(item, enchant);
+        BigInteger upgradeCost = getEnchantUpgradeCost(item, enchant);
         item = removeItemPoints(item, upgradeCost);
         item = addEnchantmentLevel(item, enchant, 1);
 
@@ -214,7 +214,7 @@ public class PickaxeUtils {
             return item;
         }
 
-        item = removeItemPoints(item, upgradeCost.intValue());
+        item = removeItemPoints(item, upgradeCost);
         return item;
     }
 
@@ -235,10 +235,10 @@ public class PickaxeUtils {
     public static boolean canUpgradeEnchant(ItemStack item, Enchant enchant) {
         if (!isUnlockedEnchant(item, enchant) || isMaxEnchantLevel(item, enchant)) return false;
 
-        long itemPointsAmount = getItemPoints(item);
-        int upgradeCost = getEnchantUpgradeCost(item, enchant);
+        BigInteger itemPointsAmount = getItemPoints(item);
+        BigInteger upgradeCost = getEnchantUpgradeCost(item, enchant);
 
-        return itemPointsAmount >= upgradeCost;
+        return itemPointsAmount.compareTo(upgradeCost) >= 0;
     }
 
     public static boolean isUnlockedQuality(ItemStack item) {
@@ -274,8 +274,8 @@ public class PickaxeUtils {
             return currencyAmount.compareTo(upgradeCost) >= 0;
         }
 
-        long itemPointsAmount = getItemPoints(item);
-        return itemPointsAmount >= upgradeCost.intValue();
+        BigInteger itemPointsAmount = getItemPoints(item);
+        return itemPointsAmount.compareTo(upgradeCost) >= 0;
     }
 
     public static boolean isMaxEnchantLevel(ItemStack item, Enchant enchant) {
@@ -317,7 +317,7 @@ public class PickaxeUtils {
         int itemQuality = getItemQuality(item);
         int nextItemQuality = itemQuality + 1;
 
-        replacers.add(NumberFormatter.getInstance().formatThousand(getItemPoints(item)));
+        replacers.add(NumberFormatter.getInstance().format(getItemPoints(item)));
         replacers.add(NumberFormatter.getInstance().formatThousand(getItemLevel(item)));
         replacers.add(NumberFormatter.getInstance().formatDecimal(ProgressConverter.getPercentage(getItemExperience(item))));
         replacers.add(ProgressConverter.convertExperience(getItemExperience(item)));
