@@ -102,15 +102,9 @@ Blocks:
     multiplier: 0.15 # exp * (1 + multiplier)
   disabled-worlds:
     - 'plotworld'
-  #
-  # MATERIAL:EXP
-  #
-  # Blocos válidos também adicionam pontos
-  # a picareta quando minerados.
-  #
-  blocks:
-    - 'DIAMOND_ORE:25'
-    - 'EMERALD_ORE:20'
+  blocks: # MATERIAL,EXP,POINTS
+    - 'DIAMOND_ORE,25,1'
+    - 'EMERALD_ORE,20,1'
 
 Pickaxe-Item:
   type: DIAMOND_PICKAXE

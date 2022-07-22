@@ -23,15 +23,15 @@ public class Items {
     private static final ItemStack PICKAXE_ITEM = ItemBuilder.build(FileUtils.get().getFile(FileUtils.Files.CONFIG).get(), "Pickaxe-Item").build();
 
     @NotNull
-    public static ItemStack getPointsItem(long amount) {
+    public static ItemStack getPointsItem(BigInteger amount) {
         NBTItem nbt = new NBTItem(POINTS_ITEM.clone());
-        nbt.setLong(PickaxeUtils.POINTS_ITEM_NBT, amount);
+        nbt.setString(PickaxeUtils.POINTS_ITEM_NBT, amount.toString());
 
         String[] placeholders = new String[]{
                 "{amount}"
         };
         String[] replacers = new String[]{
-                NumberFormatter.getInstance().format(BigInteger.valueOf(amount))
+                NumberFormatter.getInstance().format(amount)
         };
 
         return replaceItemPlaceholders(nbt.getItem(), placeholders, replacers);

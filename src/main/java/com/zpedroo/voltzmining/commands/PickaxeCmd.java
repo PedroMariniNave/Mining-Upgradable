@@ -4,6 +4,7 @@ import com.zpedroo.voltzmining.utils.config.Items;
 import com.zpedroo.voltzmining.utils.config.Messages;
 import com.zpedroo.voltzmining.utils.config.Settings;
 import com.zpedroo.voltzmining.utils.cooldown.Cooldown;
+import com.zpedroo.voltzmining.utils.formatter.NumberFormatter;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -11,6 +12,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+
+import java.math.BigInteger;
 
 public class PickaxeCmd implements CommandExecutor {
 
@@ -26,8 +29,8 @@ public class PickaxeCmd implements CommandExecutor {
                     Player target = Bukkit.getPlayer(args[1]);
                     if (target == null) break;
 
-                    int amount = getIntByString(args[2]);
-                    if (amount <= 0) break;
+                    BigInteger amount = NumberFormatter.getInstance().filter(args[2]);
+                    if (amount.signum() <= 0) break;
 
                     ItemStack item = Items.getPointsItem(amount);
                     giveItemToPlayer(target, item);
@@ -50,17 +53,6 @@ public class PickaxeCmd implements CommandExecutor {
         ItemStack item = Items.getPickaxeItem();
         player.getInventory().addItem(item);
         return false;
-    }
-
-    private int getIntByString(String str) {
-        int ret = 0;
-        try {
-            ret = Integer.parseInt(str);
-        } catch (Exception ex) {
-            // ignore
-        }
-
-        return ret;
     }
 
     private void giveItemToPlayer(Player target, ItemStack item) {
