@@ -392,7 +392,7 @@ public class Menus extends InventoryUtils {
             upgradeCost = BigInteger.valueOf(PickaxeUtils.getEnchantUpgradeCost(item, enchant));
             upgradeLevelRequired = PickaxeUtils.getEnchantUpgradeLevelRequired(item, enchant);
 
-            replacers.add(NumberFormatter.getInstance().formatThousand(upgradeCost.doubleValue()));
+            replacers.add(NumberFormatter.getInstance().format(upgradeCost));
             replacers.add(NumberFormatter.getInstance().formatThousand(upgradeLevelRequired));
         }
 

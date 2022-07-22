@@ -63,45 +63,51 @@ Enchants:
       initial: 0
       max: 10
       requirement-per-upgrade: 5
-    cost-per-level: 200
+    cost-per-level: 2000
   durability:
     level:
       initial: 0
       max: 10
       requirement-per-upgrade: 2
-    cost-per-level: 100
+    cost-per-level: 1000
   loot_bonus_blocks:
     level:
       initial: 0
       max: 10
       requirement-per-upgrade: 15
-    cost-per-level: 350
+    cost-per-level: 3500
   exp:
     level:
       initial: 0
       max: 10
       requirement-per-upgrade: 5
-    cost-per-level: 200
+    cost-per-level: 20000
     multiplier-per-level: 0.25 # exp * (1 + multiplier)
   explosion:
     level:
       initial: 0
       max: 10
       requirement-per-upgrade: 20
-    cost-per-level: 1500
+    cost-per-level: 150000
     chance:
       initial-value: 0
       upgrade-per-level: 0.75
     radius:
-      initial-value: 1
+      initial-value: 3
       upgrade-per-level: 0
 
-Blocks-Exp:
+Blocks:
   fortune:
     enabled: false
     multiplier: 0.15 # exp * (1 + multiplier)
   disabled-worlds:
     - 'plotworld'
+  #
+  # MATERIAL:EXP
+  #
+  # Blocos válidos também adicionam pontos
+  # a picareta quando minerados.
+  #
   blocks:
     - 'DIAMOND_ORE:25'
     - 'EMERALD_ORE:20'
@@ -119,15 +125,15 @@ Pickaxe-Item:
     - '&7Explosão: &f{explosion}'
     - ''
     - ' &8► &fNível: &7{level} {progress} &8({percentage}%)'
-    - ' &8► &fGemas: &7{points} &6&l✦'
+    - ' &8► &fBlocos: &7{points} &6&l❒'
     - ' &8► &fQualidade: {quality}'
     - ''
     - '&8Clique para evoluir!'
 
 Points-Item:
   type: SKULL_ITEM
-  owner: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWFjZTZiYjNhYTRjY2FjMDMxMTY4MjAyZjZkNDUzMjU5N2JjYWM2MzUxMDU5YWJkOWQxMGIyODYxMDQ5M2FlYiJ9fX0=
-  name: '&6Gema &l✦ &7[&fx{amount}&7]'
+  owner: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDRmMzI3MmExMmQwYTU1MTUzODA2NzAzZDYyNzRjNjZkYTE5NzJjZjBjOWNlYWVlZmRjOThkZjNlYzJiNCJ9fX0=
+  name: '&6Bloco &l❒ &7[&fx{amount}&7]'
   lore:
     - '&7Aplique esse item na sua'
     - '&7picareta para evoluir'
