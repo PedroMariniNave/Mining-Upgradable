@@ -38,7 +38,8 @@ public class MiningListeners implements Listener {
         ItemStack item = player.getItemInHand();
         if (!PickaxeUtils.isPickaxe(item)) return;
 
-        RewardManager.getInstance().handleRewardsChance(player);
+        Location rewardSpawnLocation = block.getLocation().clone().add(0.5D, 0D, 0D);
+        RewardManager.getInstance().handleRewardsChance(player, rewardSpawnLocation);
 
         PlayerData data = DataManager.getInstance().getPlayerData(player);
         data.addBlocks(BigInteger.ONE);

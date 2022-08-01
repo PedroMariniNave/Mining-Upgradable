@@ -22,14 +22,14 @@ public class RewardManager {
         instance = this;
     }
 
-    public void handleRewardsChance(Player player) {
+    public void handleRewardsChance(Player player, Location spawnLocation) {
         List<Reward> rewards = DataManager.getInstance().getCache().getRewards();
         for (Reward reward : rewards) {
             double chance = reward.getChance();
             double randomNumber = ThreadLocalRandom.current().nextDouble(0, 100);
             if (randomNumber > chance) continue;
 
-            Entity entity = spawnRewardEntity(player, reward);
+            Entity entity = spawnRewardEntity(player, spawnLocation, reward);
             startRewardDisappearTask(player, entity);
             reward.sendSpawnMessages(player);
             reward.playSpawnSound(player);
@@ -37,10 +37,7 @@ public class RewardManager {
         }
     }
 
-    private Entity spawnRewardEntity(Player player, Reward reward) {
-        double extraX = ThreadLocalRandom.current().nextDouble(0, 2);
-        double extraZ = ThreadLocalRandom.current().nextDouble(0, 2);
-        Location spawnLocation = player.getLocation().clone().add(extraX, 0D, extraZ);
+    private Entity spawnRewardEntity(Player player, Location spawnLocation, Reward reward) {
         Entity entity = null;
         switch (reward.getEntityName().toUpperCase()) {
             case "BABY_ZOMBIE":
